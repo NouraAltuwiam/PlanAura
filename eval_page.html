@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            EventPlanner
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> > <a href="customer_dashboard.html">My Account</a> > New Review
+        </div>
+
+        <div class="evaluation-layout">
+            <!-- Services List - Left Side -->
+            <div class="services-list">
+                <h3>Previous Services</h3>
+                
+                <div class="service-option">
+                    <div class="service-name">Wedding Planning</div>
+                    <div class="service-date">Completed: 2024-01-15</div>
+                    <div class="service-cost">$2,500.00</div>
+                </div>
+                
+                <div class="service-option">
+                    <div class="service-name">Corporate Conference</div>
+                    <div class="service-date">Completed: 2024-02-01</div>
+                    <div class="service-cost">$5,000.00</div>
+                </div>
+                
+                <div class="service-option">
+                    <div class="service-name">Birthday Party</div>
+                    <div class="service-date">Completed: 2024-01-20</div>
+                    <div class="service-cost">$800.00</div>
+                </div>
+                
+                <div class="service-option">
+                    <div class="service-name">Anniversary Dinner</div>
+                    <div class="service-date">Completed: 2024-02-10</div>
+                    <div class="service-cost">$1,200.00</div>
+                </div>
+            </div>
+
+            <!-- Review Form - Right Side -->
+            <div class="review-form-section">
+                <h2>New Review</h2>
+                
+                <form action="#" method="POST">
+                    <!-- Service Selection Dropdown -->
+                    <div class="form-group">
+                        <label for="serviceSelect">Select Service to Evaluate:</label>
+                        <select id="serviceSelect" name="service" required>
+                            <option value="">Choose a service...</option>
+                            <option value="wedding">Wedding Planning - Sarah & Alex</option>
+                            <option value="corporate">Corporate Conference - TechCorp</option>
+                            <option value="birthday">Birthday Party - Liam's 5th Birthday</option>
+                            <option value="anniversary">Anniversary Dinner - 25th Anniversary</option>
+                        </select>
+                    </div>
+
+                    <!-- Rating Section -->
+                    <div class="form-group">
+                        <label>Rate The Service:</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" name="rating" value="5" required>
+                                <div>
+                                    <div class="rating-label">Excellent - 5 Stars</div>
+                                    <div class="rating-description">Outstanding service!</div>
+                                </div>
+                            </div>
+
+                            <div class="rating-option">
+                                <input type="radio" name="rating" value="4">
+                                <div>
+                                    <div class="rating-label">Very Good - 4 Stars</div>
+                                    <div class="rating-description">Exceeded expectations</div>
+                                </div>
+                            </div>
+
+                            <div class="rating-option">
+                                <input type="radio" name="rating" value="3">
+                                <div>
+                                    <div class="rating-label">Good - 3 Stars</div>
+                                    <div class="rating-description">Met expectations</div>
+                                </div>
+                            </div>
+
+                            <div class="rating-option">
+                                <input type="radio" name="rating" value="2">
+                                <div>
+                                    <div class="rating-label">Fair - 2 Stars</div>
+                                    <div class="rating-description">Could be better</div>
+                                </div>
+                            </div>
+
+                            <div class="rating-option">
+                                <input type="radio" name="rating" value="1">
+                                <div>
+                                    <div class="rating-label">Poor - 1 Star</div>
+                                    <div class="rating-description">Very dissatisfied</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Section -->
+                    <div class="form-group">
+                        <label for="feedback">Write your feedback:</label>
+                        <textarea 
+                            id="feedback" 
+                            name="feedback" 
+                            placeholder="Share your experience with this service. What did you like? What could be improved?"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Reviews</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact us: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="31585f575e715447545f45415d505f5f54431f525e5c">[email&#160;protected]</a> | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Dark mode from localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+
+        const form = document.querySelector("form");
+        const serviceSelect = document.getElementById("serviceSelect");
+        const feedback = document.getElementById("feedback");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); 
+            let errors = [];
+
+            if (serviceSelect.value === "") {
+                errors.push("Please select a service.");
+                serviceSelect.style.border = "2px solid red";
+            } else {
+                serviceSelect.style.border = "";
+            }
+
+            const rating = document.querySelector("input[name='rating']:checked");
+            if (!rating) {
+                errors.push("Please select a rating.");
+            }
+
+            if (feedback.value.trim() === "") {
+                errors.push("Please write your feedback.");
+                feedback.style.border = "2px solid red";
+            } else {
+                feedback.style.border = "";
+            }
+
+            if (errors.length > 0) {
+                alert("Please fix the following:\n\n- " + errors.join("\n- "));
+                return;
+            }
+
+            let ratingValue = parseInt(rating.value);
+            if (ratingValue >= 4) {
+                alert("Thank you for your positive feedback! We're glad you enjoyed our service 💜");
+            } else {
+                alert("We’re sorry the service didn’t fully meet your expectations. We’ll work on improving 🌸");
+            }
+
+            window.location.href = "customer_dashboard.html";
+        });
+    });
+    </script>
+
+
+ <script>
+    // Apply dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+
+
+</body>
+</html>

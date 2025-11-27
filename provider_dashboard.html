@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Dashboard - My Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .services-horizontal-scroll .service-card {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 320px !important;
+            height: 550px !important; 
+            cursor: default !important; 
+        }
+
+        .services-horizontal-scroll .service-image {
+            flex-shrink: 0 !important;
+            height: 200px !important;
+            width: 100% !important;
+            object-fit: cover !important;
+        }
+
+        .services-horizontal-scroll .service-info {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            padding: 20px !important;
+        }
+
+        .services-horizontal-scroll .service-info h3 {
+            margin-bottom: 12px !important;
+            flex-shrink: 0 !important;
+            font-size: 1.15em !important;
+        }
+
+        
+        .services-horizontal-scroll .service-info .description {
+            flex: 1 !important;
+            color: #666 !important;
+            line-height: 1.6 !important;
+            font-size: 0.9em !important;
+            margin-bottom: 15px !important;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            padding-right: 8px !important;
+            word-wrap: break-word !important;
+            max-height: 150px !important;
+            opacity: 1 !important; 
+        }
+
+        
+        .services-horizontal-scroll .service-info .description::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .services-horizontal-scroll .service-info .description::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .services-horizontal-scroll .service-info .description::-webkit-scrollbar-thumb {
+            background: #A376A2;
+            border-radius: 3px;
+        }
+
+        body.dark-mode .services-horizontal-scroll .service-info .description::-webkit-scrollbar-track {
+            background: #3d3d3d;
+        }
+
+        body.dark-mode .services-horizontal-scroll .service-info .description::-webkit-scrollbar-thumb {
+            background: #e0c3e0;
+        }
+
+        .services-horizontal-scroll .service-status {
+            flex-shrink: 0 !important;
+            margin-top: auto !important;
+            padding-top: 12px !important;
+            border-top: 1px dashed #ddd !important;
+        }
+
+        .services-horizontal-scroll .service-actions {
+            flex-shrink: 0 !important;
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="planning-hub-header">
+        PLANNING HUB
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html" class="active">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; My Services
+        </div>
+
+        <div class="provider-quick-actions">
+            <a href="provider_dashboard.html" class="quick-action-btn active">
+                <span>🏠</span> My Services
+            </a>
+            <a href="add_service.html" class="quick-action-btn">
+                <span>➕</span> Add Service
+            </a>
+            <a href="manage_team.html" class="quick-action-btn">
+                <span>👥</span> Manage Team
+            </a>
+        </div>
+
+        <section class="section">
+            <h1>My Services</h1>
+
+            <div class="service-filters">
+                <button class="filter-button active-filter" data-category="all">All Services</button>
+                <button class="filter-button" data-category="parties">Parties</button>
+                <button class="filter-button" data-category="decorations">Decorations</button>
+                <button class="filter-button" data-category="venues">Venues</button>
+                <button class="filter-button" data-category="food">Food & Beverages</button>
+            </div>
+
+            <div class="services-horizontal-scroll" id="servicesContainer">
+                <div style="width: 100%; text-align: center; padding: 40px; color: #666;">
+                    <p style="font-size: 1.2em;">No services added yet. Click "Add Service" to create your first service!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    </footer>
+
+    <script>
+        // Apply dark mode from localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+
+        const servicesContainer = document.getElementById('servicesContainer');
+        let allServices = [];
+        let currentFilter = 'all';
+
+        // ============================================
+        // LOAD SERVICES FROM LOCAL STORAGE
+        // ============================================
+        function loadServices() {
+            const storedServices = localStorage.getItem('providerServices');
+            
+            if (storedServices) {
+                allServices = JSON.parse(storedServices);
+                displayServices(allServices);
+            } else {
+                servicesContainer.innerHTML = `
+                    <div style="width: 100%; text-align: center; padding: 40px; color: #666;">
+                        <p style="font-size: 1.2em;">No services added yet. Click "Add Service" to create your first service!</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================
+        // DISPLAY SERVICES
+        // ============================================
+        function displayServices(services) {
+            if (!services || services.length === 0) {
+                servicesContainer.innerHTML = `
+                    <div style="width: 100%; text-align: center; padding: 40px; color: #666;">
+                        <p style="font-size: 1.2em;">No services found. Try adding a new service!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            servicesContainer.innerHTML = '';
+
+            services.forEach(service => {
+                const serviceCard = createServiceCard(service);
+                servicesContainer.appendChild(serviceCard);
+            });
+        }
+
+        // ============================================
+        // CREATE SERVICE CARD 
+        // ============================================
+        function createServiceCard(service) {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.dataset.serviceId = service.id;
+
+            const statusClass = service.status === 'active' ? 'active' : 'paused';
+            const statusText = service.status === 'active' ? 'Active' : 'Paused';
+            const actionButton = service.status === 'active' 
+                ? '<button class="action-btn pause-btn" onclick="toggleServiceStatus(' + service.id + ')">Pause</button>'
+                : '<button class="action-btn resume-btn" onclick="toggleServiceStatus(' + service.id + ')">Resume</button>';
+
+            const imageSource = service.image || 'service_placeholder.jpg';
+
+            card.innerHTML = `
+                <img src="${imageSource}" alt="${service.name}" class="service-image" 
+                     onerror="this.src='service_placeholder.jpg'">
+                <div class="service-info">
+                    <h3>${service.name}</h3>
+                    <p class="description">${service.description}</p>
+                    <div class="service-status">
+                        <span class="status-badge ${statusClass}">${statusText}</span>
+                        <span class="clients-count">${service.clients} Clients</span>
+                    </div>
+                </div>
+                <div class="service-actions">
+                    <div class="edit-pause-group">
+                        <button class="action-btn edit-btn" onclick="editService(${service.id})">Edit</button>
+                        ${actionButton}
+                    </div>
+                    <button class="action-btn delete-btn-action" onclick="confirmDelete(${service.id}, '${service.name.replace(/'/g, "\\'")}')">Delete</button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // ============================================
+        // FILTER SERVICES
+        // ============================================
+        function filterServices(category) {
+            currentFilter = category;
+            
+            if (category === 'all') {
+                displayServices(allServices);
+            } else {
+                const filtered = allServices.filter(service => 
+                    service.category.toLowerCase() === category.toLowerCase()
+                );
+                displayServices(filtered);
+            }
+
+            document.querySelectorAll('.filter-button').forEach(btn => {
+                btn.classList.remove('active-filter');
+            });
+            event.target.classList.add('active-filter');
+        }
+
+        // ============================================
+        // TOGGLE SERVICE STATUS
+        // ============================================
+        function toggleServiceStatus(serviceId) {
+            const serviceIndex = allServices.findIndex(s => s.id === serviceId);
+            
+            if (serviceIndex !== -1) {
+                allServices[serviceIndex].status = 
+                    allServices[serviceIndex].status === 'active' ? 'paused' : 'active';
+                
+                localStorage.setItem('providerServices', JSON.stringify(allServices));
+                loadServices();
+            }
+        }
+
+        // ============================================
+        // CONFIRM DELETE - Using Browser's Default Confirm
+        // ============================================
+        function confirmDelete(serviceId, serviceName) {
+            const confirmMessage = `Are you sure you want to delete "${serviceName}"? This action cannot be undone.`;
+            
+            if (confirm(confirmMessage)) {
+                deleteService(serviceId);
+            }
+        }
+
+        // ============================================
+        // DELETE SERVICE
+        // ============================================
+        function deleteService(serviceId) {
+            allServices = allServices.filter(s => s.id !== serviceId);
+            localStorage.setItem('providerServices', JSON.stringify(allServices));
+            loadServices();
+        }
+
+        
+        function editService(serviceId) {
+            
+            window.location.href = 'add_service.html?edit=' + serviceId;
+        }
+
+        
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                filterServices(this.dataset.category);
+            });
+        });
+
+        // Load services on page load
+        window.addEventListener('DOMContentLoaded', loadServices);
+    </script>
+</body>
+</html>

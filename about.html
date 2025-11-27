@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planaura</title>
+    <style>
+        .required::after {
+            content: " *";
+            color: #d32f2f;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+ <main class="container">
+  <div class="breadcrumb">Home &raquo; <a href="about.html">About Us</a></div>
+  <h1 class="about-h1">About Us</h1>
+
+  <div class="about-rows">
+    <section class="mission-section">
+      <div class="mission-overlay">
+        <h2>Our Mission</h2>
+        <p>
+          We pledge to achieve success through professional organization
+          and advanced logistics services.
+        </p>
+        <p>
+          Our main mission is to raise the level of our performance in managing events to reach
+          levels no one else has reached. We strive to achieve excellence in all aspects of event
+          management and organization.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <h3 class="team-h2">Meet Our Team</h3>
+  <div class="team-carousel" >
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Farah Al-Hamed"></div>
+        <a href="profile.html">Farah Al-Hamed</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Noura Al-Tuwiam"></div>
+        <a href="noraprofile.html">Noura Al-Tuwiam</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Juri Al-Zahem"></div>
+        <a href="juriprofile.html">Juri Al-Zahem</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Sadeem Al-Sultan"></div>
+        <a href="sadeemprofile.html">Sadeem Al-Sultan</a>
+      </div>
+    </div>
+  </div>
+
+  <section aria-label="Join Us">
+    <div class="card-purple joinus">
+      <h3>Join Us!</h3>
+      <form id="joinForm" action="#" method="post" class="join-grid" enctype="multipart/form-data">
+        <div>
+          <label for="jn" class="required">Add your name</label>
+          <input id="jn" name="name" type="text" required >
+        </div>
+        <div>
+          <label for="skills" class="required">Skills</label>
+          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" required >
+        </div>
+        <div>
+          <label for="dob" class="required">DoB</label>
+          <input id="dob" name="dob" type="date" required >
+        </div>
+        <div>
+          <label for="jemail" class="required">Email</label>
+          <input id="jemail" name="email" type="email" required >
+        </div>
+        <div>
+          <label for="pass" class="required">Password</label>
+          <input id="pass" name="password" type="password" required >
+        </div>
+        <div>
+          <label for="cpass" class="required">Confirm the Password</label>
+          <input id="cpass" name="confirm_password" type="password" required >
+        </div>
+        <div>
+          <label for="edu" class="required">Education</label>
+          <input id="edu" name="education" type="text" required >
+        </div>
+        
+        <div>
+          <label for="area" class="required">Area of Expertise</label>
+          <input id="area" name="area" type="text" required >
+        </div>
+        <div>
+          <label for="photo" class="required">Add Photo</label>
+          <input id="photo" name="photo" type="file" accept="image/*" style="display: none;">
+          <div class="photo-pad" id="photoUpload">Upload</div>
+        </div>
+        <div style="grid-column:1 / -1;">
+          <label for="msg" class="required">Message</label>
+          <textarea id="msg" name="message" rows="3" required></textarea>
+        </div>
+        <div class="join-actions">
+          <button class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  </main>
+
+ <footer>
+        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <script>
+    
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('joinForm');
+        const photoUpload = document.getElementById('photoUpload');
+        const photoInput = document.getElementById('photo');
+        
+        
+        photoUpload.addEventListener('click', function() {
+            photoInput.click();
+        });
+        
+        
+        photoInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                photoUpload.textContent = this.files[0].name;
+            } else {
+                photoUpload.textContent = 'Upload';
+            }
+        });
+        
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+           
+            const nameInput = document.getElementById('jn');
+            const dobInput = document.getElementById('dob');
+            const photoInput = document.getElementById('photo');
+            const skillsInput = document.getElementById('skills');
+            const educationInput = document.getElementById('edu');
+            const areaInput = document.getElementById('area');
+            const messageInput = document.getElementById('msg');
+            
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            
+            const requiredTextFields = form.querySelectorAll('input[type="text"][required], input[type="email"][required], input[type="password"][required], input[type="date"][required], textarea[required]');
+            requiredTextFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    const fieldLabel = field.closest('div').querySelector('label').textContent.replace(' *', '');
+                    errorMessage += `- ${fieldLabel} is required\n`;
+                }
+            });
+            
+            
+            const nameValue = nameInput.value.trim();
+            if (nameValue && /^[0-9\W]/.test(nameValue)) {
+                isValid = false;
+                errorMessage += "- Name cannot start with numbers or symbols\n";
+            }
+            
+            const skillsValue = skillsInput.value.trim();
+            if (skillsValue && /^\d/.test(skillsValue)) {
+                isValid = false;
+                errorMessage += "- Skills cannot start with numbers\n";
+            }
+            
+            const educationValue = educationInput.value.trim();
+            if (educationValue && /^\d/.test(educationValue)) {
+                isValid = false;
+                errorMessage += "- Education cannot start with numbers\n";
+            }
+            
+            const areaValue = areaInput.value.trim();
+            if (areaValue && /^\d/.test(areaValue)) {
+                isValid = false;
+                errorMessage += "- Area of Expertise cannot start with numbers\n";
+            }
+            
+            const messageValue = messageInput.value.trim();
+            if (messageValue && /^\d/.test(messageValue)) {
+                isValid = false;
+                errorMessage += "- Message cannot start with numbers\n";
+            }
+            
+           
+            if (photoInput.files.length === 0) {
+                isValid = false;
+                errorMessage += "- Photo is required\n";
+            } else {
+                const file = photoInput.files[0];
+                if (!file.type.startsWith('image/')) {
+                    isValid = false;
+                    errorMessage += "- Photo must be an image file\n";
+                }
+            }
+            
+         
+            if (dobInput.value) {
+                const dob = new Date(dobInput.value);
+                const cutoffDate = new Date('2008-12-31');
+                if (dob > cutoffDate) {
+                    isValid = false;
+                    errorMessage += "- Date of Birth should not be after 2008\n";
+                }
+            }
+            
+       
+            if (!isValid) {
+                alert("Please fix the following errors:\n\n" + errorMessage);
+            } else {
+                alert(`Thank you, ${nameValue}! You have joined us Successfully :)`);
+            }
+        });
+    });
+    </script>
+</body>
+</html>

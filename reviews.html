@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .review-feedback {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #E5D9F2;
+            font-size: 14px;
+        }
+        
+        .review-feedback span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+        
+        .review-feedback strong {
+            color: #A376A2;
+            font-size: 16px;
+        }
+        
+        .review-actions button {
+            transition: all 0.3s ease;
+        }
+        
+        .review-actions button.active-like {
+            background-color: #4CAF50 !important;
+            color: white !important;
+            border-color: #4CAF50 !important;
+            font-weight: bold;
+        }
+        
+        .review-actions button.active-dislike {
+            background-color: #f44336 !important;
+            color: white !important;
+            border-color: #f44336 !important;
+            font-weight: bold;
+        }
+        
+        /* Dark mode support for feedback */
+        body.dark-mode .review-feedback {
+            border-top-color: #555;
+        }
+        
+        body.dark-mode .review-feedback span {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .review-feedback strong {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="breadcrumbs">
+    <a href="index.html">Home</a> &raquo; Reviews
+        </div>
+    <div class="container">
+        <header class="reviews-header">
+            <h1>Client Reviews</h1>
+            <p>See what our clients say about their events</p>
+        </header>
+
+        <div class="review-section">
+            <h2>Decorations&Themes</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                 <p>sara ahmed</p> 
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">This event was perfectly organized! The team was professional and paid attention to every detail, making our day truly special. Highly recommend!</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                <p>nora khalid</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Absolutely thrilled with the service. Everything went smoothly, and the decorations were exactly as we imagined.Thank you, EventPlanner!</div>
+                </div>
+            </div>
+
+            <h2>Food&Bevarages</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                <p>mona sami</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">The catering was outstanding! All our guests complimented the food. The planning process was stress-free.</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                <p>fahad</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Professionalism at its best. They handled a last-minute change seamlessly. I would definitely use their services again.</div>
+                </div>
+            </div>
+
+            <h2>Venues</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                <p>abdulsalam</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Fantastic venue recommendation and coordination. Everything was top-notch, from initial consultation to execution.</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                <p>shaden ibrahem</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">A wonderful experience overall. The team made sure our corporate event ran flawlessly. Highly satisfied!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overall-satisfaction section">
+            <h3>Overall Client Satisfaction</h3>
+            <p style="font-size: 1.5rem; font-weight: bold; color: #A594F9;">5 / 5</p>
+            <div class="rating-stars">
+                &#9733;&#9733;&#9733;&#9733;&#9733; 
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    </div> 
+    
+    <script>
+    // Apply dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+    </script>
+    
+    <script>
+    // ========================================
+    // Reviews Like/Dislike System with Counter
+    // Extra Functionality for Phase 3 - Point 9
+    // ========================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+       
+        const reviewContainers = document.querySelectorAll('.review-container');
+        
+        
+        let reviewData = {};
+        
+        
+        reviewContainers.forEach((container, index) => {
+            const reviewId = `review_${index}`;
+            const likeBtn = container.querySelector('.like-btn');
+            const dislikeBtn = container.querySelector('.dislike-btn');
+            
+            
+            if (!reviewData[reviewId]) {
+                reviewData[reviewId] = {
+                    likes: 0,
+                    dislikes: 0,
+                    userAction: null // null, 'like', or 'dislike'
+                };
+            }
+        
+            
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'review-feedback';
+            feedbackDiv.innerHTML = `
+                <span class="like-count">👍 <strong>${reviewData[reviewId].likes}</strong> Likes</span>
+                <span class="dislike-count">👎 <strong>${reviewData[reviewId].dislikes}</strong> Dislikes</span>
+            `;
+            
+            
+            const reviewText = container.querySelector('.review-text');
+            reviewText.after(feedbackDiv);
+            
+            function updateDisplay() {
+
+                feedbackDiv.querySelector('.like-count strong').textContent = reviewData[reviewId].likes;
+                feedbackDiv.querySelector('.dislike-count strong').textContent = reviewData[reviewId].dislikes;
+                
+                likeBtn.classList.remove('active-like');
+                dislikeBtn.classList.remove('active-dislike');
+                
+                if (reviewData[reviewId].userAction === 'like') {
+                    likeBtn.classList.add('active-like');
+                } else if (reviewData[reviewId].userAction === 'dislike') {
+                    dislikeBtn.classList.add('active-dislike');
+                }
+            }
+            
+            likeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (reviewData[reviewId].userAction === 'like') {
+
+                    reviewData[reviewId].likes--;
+                    reviewData[reviewId].userAction = null;
+                } else {
+                    if (reviewData[reviewId].userAction === 'dislike') {
+                        reviewData[reviewId].dislikes--;
+                    }
+                    reviewData[reviewId].likes++;
+                    reviewData[reviewId].userAction = 'like';
+                }
+                
+                updateDisplay();
+            });
+            
+            dislikeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (reviewData[reviewId].userAction === 'dislike') {
+                    reviewData[reviewId].dislikes--;
+                    reviewData[reviewId].userAction = null;
+                } else {
+                    if (reviewData[reviewId].userAction === 'like') {
+                        reviewData[reviewId].likes--;
+                    }
+                    reviewData[reviewId].dislikes++;
+                    reviewData[reviewId].userAction = 'dislike';
+                }
+                
+                updateDisplay();
+            });
+            
+            updateDisplay();
+        });
+        
+        console.log('✅ Reviews Like/Dislike System Loaded Successfully!');
+    });
+    </script>
+</body>
+</html>

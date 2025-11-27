@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+    <main class="page">
+        <!-- breadcrumbs + header -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> &gt;
+            <a href="customer_dashboard.html">My Account</a> &gt;
+            <span>Request A Service</span>
+        </div>
+
+        <div class="header-card">
+            <div class="header-left">
+                <h2>Request A New Service</h2>
+                <p>Choose services and details below and we'll send you a preliminary offer.</p>
+            </div>
+            <a class="start-planning" href="customer_dashboard.html">Back to Dashboard</a>
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <!-- Venue Type Section -->
+                <div class="card" id="venue-card">
+                    <h3>Venue Type - Price Per Hour</h3>
+                    
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="Conference Hall" src="images/hotel.jpg">
+                            <div class="title">Conference Hall</div>
+                            <div class="description">Professional meeting spaces equipped for corporate events and seminars</div>
+                            <small>$200/hour</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Restaurant Venue" src="images/resturamt.jpg">
+                            <div class="title">Restaurant Hall</div>
+                            <div class="description">Intimate settings with built-in catering and ambiance</div>
+                            <small>$120/hour</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Outdoor Venue" src="images/outdoor.jpg">
+                            <div class="title">Outdoor Garden</div>
+                            <div class="description">Beautiful natural settings for romantic celebrations</div>
+                            <small>$90/hour</small>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="venueSelect">Select Your Venue:</label>
+                        <select id="venueSelect" name="venueSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Venue --</option>
+                            <option value="hotel_standard">Conference Hall - $200/hour</option>
+                            <option value="hotel_premium">Premium Conference Suite - $250/hour</option>
+                            <option value="restaurant_private">Private Restaurant Hall - $120/hour</option>
+                            <option value="restaurant_garden">Restaurant Garden Area - $150/hour</option>
+                            <option value="outdoor_garden">Garden Venue - $90/hour</option>
+                            <option value="outdoor_beach">Beach Venue - $110/hour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Food & Beverages Section -->
+                <div class="card" id="food-card">
+                    <h3>Food & Beverages - Price Per Person</h3>
+                    
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="Buffet Service" src="images/buffet.jpg">
+                            <div class="title">Buffet Style</div>
+                            <div class="description">Varied menu with self-service stations for flexibility</div>
+                            <small>$35/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Plated Dinner" src="images/platte.jpg">
+                            <div class="title">Plated Dinner</div>
+                            <div class="description">Formal served meals with professional waitstaff</div>
+                            <small>$60/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Beverage Service" src="images/bev.jpg">
+                            <div class="title">Drinks Package</div>
+                            <div class="description">Premium beverages and cocktail service only</div>
+                            <small>$20/person</small>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="foodSelect">Select Food Service:</label>
+                        <select id="foodSelect" name="foodSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose Food Option --</option>
+                            <option value="buffet_standard">Standard Buffet - $35/person</option>
+                            <option value="buffet_premium">Premium Buffet - $45/person</option>
+                            <option value="plated_standard">Plated Dinner - $60/person</option>
+                            <option value="plated_gourmet">Gourmet Plated - $80/person</option>
+                            <option value="drinks_soft">Soft Drinks Only - $15/person</option>
+                            <option value="drinks_premium">Premium Beverages - $25/person</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Theme & Decorations Section -->
+                <div class="card" id="theme-card">
+                    <h3>Theme & Decorations - Fixed Price</h3>
+                    
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="Birthday Theme" src="images/birth.jpg">
+                            <div class="title">Birthday Theme</div>
+                            <div class="description">Colorful and fun decorations perfect for birthday celebrations</div>
+                            <small>$100</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Graduation Theme" src="images/grad.jpg">
+                            <div class="title">Graduation Theme</div>
+                            <div class="description">Academic-inspired decorations for graduation parties</div>
+                            <small>$180</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="Baby Shower Theme" src="images/baby.jpg">
+                            <div class="title">Baby Shower Theme</div>
+                            <div class="description">Sweet and adorable decorations for baby shower events</div>
+                            <small>$70</small>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="themeSelect">Select Theme Package:</label>
+                        <select id="themeSelect" name="themeSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Theme --</option>
+                            <option value="birthday_standard">Birthday Theme - $100</option>
+                            <option value="birthday_premium">Premium Birthday - $150</option>
+                            <option value="graduation_standard">Graduation Theme - $180</option>
+                            <option value="graduation_premium">Premium Graduation - $250</option>
+                            <option value="babyshower_standard">Baby Shower Theme - $70</option>
+                            <option value="babyshower_premium">Premium Baby Shower - $120</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Final Details + Form -->
+                <div class="card" id="final-card">
+                    <h3>Final Details & Request</h3>
+
+                    <form id="requestForm" action="#" method="post">
+                        <div class="form-grid">
+                            <div>
+                                <label for="custName">Customer Name</label>
+                                <input id="custName" name="custName" type="text" placeholder="Enter your full name" required >
+                            </div>
+
+                            <div>
+                                <label for="phone">Phone Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="+966 5xxxxxxxx" >
+                            </div>
+
+                            <div>
+                                <label for="date">Event Date</label>
+                                <input id="date" name="date" type="date" required >
+                            </div>
+
+                            <div>
+                                <label for="hours">Number of Hours</label>
+                                <input id="hours" name="hours" type="number" min="1" value="3" required >
+                            </div>
+
+                            <div>
+                                <label for="guests">Number of Guests</label>
+                                <input id="guests" name="guests" type="number" min="1" value="50" required >
+                            </div>
+
+                            <div>
+                                <label for="time">Event Time</label>
+                                <input id="time" name="time" type="text" placeholder="Example: 07:00 PM" >
+                            </div>
+
+                            <div class="full">
+                                <label for="description">Request Description</label>
+                                <textarea id="description" name="description" placeholder="Write additional details about the event, special requests, or notes"></textarea>
+                            </div>
+
+                            <div class="full">
+                                <small class="note">All selections above are required to process your service request.</small>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px;">
+                            <button type="submit" class="send-btn">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Requests added in this visit -->
+                <div id="requestsList" class="card" style="margin-top:18px; display:none;"></div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="sidebar">
+                <div class="cost-box card">
+                    <h4>Event Cost - Estimated</h4>
+
+                    <div class="cost-row">
+                        <div>Venue (per hour)</div>
+                        <div>$200</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Hours</div>
+                        <div>3</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Venue subtotal</div>
+                        <div>$600</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Food (per guest)</div>
+                        <div>$35</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Guests</div>
+                        <div>50</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Food subtotal</div>
+                        <div>$1,750</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Theme</div>
+                        <div>$100</div>
+                    </div>
+
+                    <div class="cost-row total">
+                        <div>Estimated Total</div>
+                        <div>$2,450</div>
+                    </div>
+
+                    <div style="margin-top:10px; font-size:13px;" class="small-muted">
+                        Cost will update based on your selections above.
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer>
+            <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+            <p>@copyrights EventPlanner 2024</p>
+            <div style="margin-top: 1rem;">
+                <a href="#">Help Center</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a>
+            </div>
+        </footer>
+    </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+
+    const form = document.getElementById('requestForm');
+    if (!form) return;
+
+    const venueSelect   = document.getElementById('venueSelect');
+    const foodSelect    = document.getElementById('foodSelect');
+    const themeSelect   = document.getElementById('themeSelect');
+    const custNameInput = document.getElementById('custName');
+    const dateInput     = document.getElementById('date');
+    const descInput     = document.getElementById('description');
+    const phoneInput    = document.getElementById('phone');
+    const hoursInput    = document.getElementById('hours');
+    const guestsInput   = document.getElementById('guests');
+    const timeInput     = document.getElementById('time');
+    const requestsListContainer = document.getElementById('requestsList');
+
+    const requests = [];
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const errors = [];
+
+        // 1) At least one service
+        if (!venueSelect.value && !foodSelect.value && !themeSelect.value) {
+            errors.push('Please select at least one service (venue, food, or theme).');
+        }
+
+        // 2) Name validation: full name, no numbers or symbols
+        const name = custNameInput.value.trim();
+        if (!name) {
+            errors.push('Customer name is required.');
+        } else {
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                errors.push('Name must contain letters and spaces only (no numbers or symbols).');
+            }
+            const parts = name.split(/\s+/);
+            if (parts.length < 2) {
+                errors.push('Please enter your full name (first and last).');
+            }
+        }
+
+        // 3) Date validation: not too soon
+        const dateValue = dateInput.value;
+        if (!dateValue) {
+            errors.push('Please choose an event date.');
+        } else {
+            const MIN_DAYS_AHEAD = 3;
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const selectedDate = new Date(dateValue);
+            const diffDays = (selectedDate - today) / (1000 * 60 * 60 * 24);
+
+            if (isNaN(selectedDate.getTime())) {
+                errors.push('Please enter a valid date.');
+            } else if (diffDays < MIN_DAYS_AHEAD) {
+                errors.push('Event date is too soon. Please select a date at least ' + MIN_DAYS_AHEAD + ' days from today.');
+            }
+        }
+
+        // 4) Description length >= 100
+        const desc = descInput.value.trim();
+        if (desc.length < 100) {
+            errors.push('Request description must be at least 100 characters.');
+        }
+
+        if (errors.length > 0) {
+            alert('Please fix the following before submitting:\n\n- ' + errors.join('\n- '));
+            return;
+        }
+
+        const stayOnPage = confirm(
+            'Your request was sent successfully.\n\n' +
+            'Press OK to stay on this page and review your request(s).\n' +
+            'Press Cancel to return to your dashboard.'
+        );
+
+        if (!stayOnPage) {
+            window.location.href = 'customer_dashboard.html';
+            return;
+        }
+
+        // Build service texts
+        const venueText = venueSelect.value
+            ? venueSelect.options[venueSelect.selectedIndex].text
+            : '—';
+        const foodText = foodSelect.value
+            ? foodSelect.options[foodSelect.selectedIndex].text
+            : '—';
+        const themeText = themeSelect.value
+            ? themeSelect.options[themeSelect.selectedIndex].text
+            : '—';
+
+        const request = {
+            venue: venueText,
+            food: foodText,
+            theme: themeText,
+            name: name,
+            phone: phoneInput.value.trim(),
+            guests: guestsInput.value,
+            hours: hoursInput.value,
+            date: dateValue,
+            time: timeInput.value.trim(),
+            description: desc
+        };
+
+        requests.push(request);
+        renderRequests();
+
+        // Reset form for another request
+        form.reset();
+        hoursInput.value = 3;
+        guestsInput.value = 50;
+    });
+
+    function renderRequests() {
+        if (!requestsListContainer) return;
+
+        if (requests.length === 0) {
+            requestsListContainer.style.display = 'none';
+            requestsListContainer.innerHTML = '';
+            return;
+        }
+
+        requestsListContainer.style.display = 'block';
+
+        let html = '<h3>Requests added in this visit</h3>';
+        html += '<p class="note">These requests are temporary and will disappear once you leave this page.</p>';
+        html += '<table><thead><tr>' +
+                '<th>#</th>' +
+                '<th>Services</th>' +
+                '<th>Customer</th>' +
+                '<th>Date & Time</th>' +
+                '<th>Description</th>' +
+                '</tr></thead><tbody>';
+
+        requests.forEach(function (r, index) {
+            html += '<tr>' +
+                    '<td>' + (index + 1) + '</td>' +
+                    '<td>' +
+                        '<strong>Venue:</strong> ' + r.venue + '<br>' +
+                        '<strong>Food:</strong> ' + r.food + '<br>' +
+                        '<strong>Theme:</strong> ' + r.theme +
+                    '</td>' +
+                    '<td>' +
+                        r.name + '<br>' +
+                        (r.phone ? 'Phone: ' + r.phone + '<br>' : '') +
+                        'Guests: ' + (r.guests || '—') + '<br>' +
+                        'Hours: ' + (r.hours || '—') +
+                    '</td>' +
+                    '<td>' +
+                        (r.date || '—') + '<br>' +
+                        (r.time || '—') +
+                    '</td>' +
+                    '<td>' +
+                        (r.description || '—') +
+                    '</td>' +
+                    '</tr>';
+        });
+
+        html += '</tbody></table>';
+        requestsListContainer.innerHTML = html;
+    }
+});
+</script>
+
+    <script>
+    // Apply dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+
+</body>
+</html>

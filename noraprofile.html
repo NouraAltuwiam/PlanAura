@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            planAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+      <div class="breadcrumb">Home &raquo; <a href="about.html">About Us</a> &raquo; <a href="profile.html">staff</a></div>
+
+  <header>
+    <h1 class="staff">Staff</h1>
+    <p class="staff-desc">Here are some information about this staff member:</p>
+  </header>
+
+  <main class="container">
+    <div class="section">
+      <table >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>DoB</th>
+            <th>Email</th>
+            <th >Area of<br>Expertise</th>
+            <th>Skills</th>
+            <th>Education</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td rowspan="3">Noura Al-Tuwiam</td>
+
+            <td rowspan="3">
+              <img class="staff-photo"
+                   src="images/girl.png"
+                   alt="Noura Al-Tuwiam">
+            </td>
+
+            <td rowspan="3">2005/05/22</td>
+            <td rowspan="3"><a href="/cdn-cgi/l/email-protection#eca283999e8db3ddd8dedaac858f80839988c28f8381"><span class="__cf_email__" data-cfemail="3a74554f485b650b0e080c7a535956554f5e14595557">[email&#160;protected]</span></a></td>
+
+
+            <td>Web Development</td>
+            
+        
+
+            <td rowspan="1">
+              <ul class="skills-list">
+                <li>Front-End
+                  <ul>
+                    <li>HTML5 / CSS3 / Flexbox</li>
+                    <li>JavaScript (ES6+)</li>
+                  </ul>
+                </li>
+              </ul>
+            </td >
+
+            <td rowspan="3">
+              <ul class="edu-list">
+                <li>Undergraduate
+                  <ul>
+                    <li>BSc IT, CCIS — KSU</li>
+                    <li>Focus: AI / Security</li>
+                  </ul>
+                </li>
+                <li>Certificates
+                  <ul>
+                    <li>ML Foundations</li>
+                    <li>Generative AI </li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+
+          <tr>
+          <td>Project Coordination</td>
+          <td rowspan="2">
+          <ul><li >Design
+                  <ul>
+                    <li>Figma &amp; Prototyping</li>
+                    <li>Accessibility Basics</li>
+                  </ul>
+                </li>
+                </ul>
+                </td>
+          </tr>
+
+          <tr>
+          <td>UI / UX</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <a class="back-btn" href="about.html">Back</a>
+
+  <footer>
+        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    <script>
+    // Apply dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+</body>
+</html>
